@@ -1,0 +1,6 @@
+test/out/
+node_modules/
+.clasp.json
+.clasprc.json
+# 紹介用の画像（node tools/demo.js で作り直せる）
+promo/
