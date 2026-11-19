@@ -60,7 +60,7 @@ for lang in ('ja', 'en'):
     d = os.path.join(OUT, lang)
     if os.path.isdir(d):
         for f in os.listdir(d):
-            if f.startswith(('step-', 'hero-', 'usecase-')): os.remove(os.path.join(d, f))   # 古い名前の画像を残さない
+            if f.endswith('.png') and f.startswith(('step-', 'hero-', 'usecase-')): os.remove(os.path.join(d, f))   # 古い名前の画像を残さない（GIF は、tools/demo-video.py が作るので触らない）
     if not os.path.isdir(os.path.join(SRC[lang], MAIN)):
         print(lang + ': 画面のフォルダが見つかりません（' + SRC[lang] + '）。飛ばします'); continue
     L = lambda name, slug=MAIN: load(lang, slug, name)
@@ -69,18 +69,9 @@ for lang in ('ja', 'en'):
     save(fit(L('board-dark'), W), lang, 'hero-dark')
     # 手順
     save(strip([L('first'), L('mail-invite'), L('join')], 900), lang, 'step-start')          # 始める・招待・参加
-    tpl = L('templates')
-    save(fit(tpl.crop((0, 0, tpl.width, min(tpl.height, bottom(tpl) + 28))), W), lang, 'step-template')   # テンプレートで報告の項目を決める
-    save(fit(L('board'), W), lang, 'step-board')                                             # タスクを割り当てる
+    # テンプレート・割り当て・通知・スマホ・出力の場面は GIF（tools/demo-video.py --gifs）。ここで作るのは、動かない画面だけ
     save(fit(L('month'), W), lang, 'step-month')
-    save(strip([L('member'), L('member-task'), L('member-report')], 900), lang, 'step-member')  # 現場はスマホで
-    mails = [n for n in ('mail-assign', 'mail-done', 'mail-late') if os.path.exists(os.path.join(SRC[lang], MAIN, n + '.png'))]
-    if len(mails) < 2 and os.path.exists(os.path.join(SRC[lang], MAIN, 'mail-invite.png')): mails = ['mail-invite'] + mails   # 通知が 1 通だけなら、招待も並べる
-    shots = [L(n) for n in mails]
-    cut = min(shots[0].height, max(bottom(im) for im in shots) + 48)                          # メールは下の余白を切る
-    save(strip([im.crop((0, 0, im.width, cut)) for im in shots], cut), lang, 'step-mail')   # 通知のメール（ある分だけ並べる）
     save(fit(L('tasks'), W), lang, 'step-tasks')                                             # 報告を確認
-    save(fit(L('reports'), W), lang, 'step-reports')                                         # データを出力
     # ユースケース（業種ごとのボード）
     for slug in CASES:
         if os.path.isdir(os.path.join(SRC[lang], slug)):

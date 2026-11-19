@@ -44,13 +44,13 @@ Choose a language, enter a project name and start. Members receive an invitation
 
 Create a template for each kind of work and choose the fields members report. There are eight field types: text, long text, number, select, multi-select, date, time and photo. Required fields, duration, location recording and a Meet link are also set per template.
 
-![Template](images/en/step-template.png)
+![Template](images/en/step-template.gif)
 
 ### 3. Assign tasks on the board
 
 Place tasks on each member's timeline. Day, week and month views, shifts and repeating tasks are supported. For unassigned tasks, Scurrop suggests a member who is free.
 
-![Board](images/en/step-board.png)
+![Board](images/en/step-board.gif)
 
 ![Month view](images/en/step-month.png)
 
@@ -58,13 +58,13 @@ Place tasks on each member's timeline. Day, week and month views, shifts and rep
 
 Members see only their own tasks. They tap to start and finish, then fill in the fields set in the template. Photos can be taken on the phone and attached.
 
-![Member screens](images/en/step-member.png)
+![Member screens](images/en/step-member.gif)
 
 ### 5. Assignment, completion and delays are sent by email
 
 Members are notified when a task is assigned, admins when it is completed, and both when a start is late. You can change the notification rules in Settings.
 
-![Notification emails](images/en/step-mail.png)
+![Notification emails](images/en/step-mail.gif)
 
 ### 6. Review the reports
 
@@ -76,7 +76,7 @@ The task list shows report contents, actual times, photos and locations. You can
 
 Export the full work log with a summary, and daily, weekly or monthly data, to Google Sheets. Past data can be archived by month.
 
-![Reports](images/en/step-reports.png)
+![Reports](images/en/step-reports.gif)
 
 ## Use cases
 
